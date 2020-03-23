@@ -53,14 +53,6 @@ injectPage = () => {
   document.getElementById("list").innerHTML = list;
 };
 
-updateIndex = pageIndex => {
-  startIndex = (pageIndex - 1) * 10;
-  endIndex = startIndex + 10;
-  selectedPage = pageIndex;
-  console.log("startindex is: " + startIndex + " endIndexis " + endIndex);
-  injectPage();
-};
-
 goPrevious = () => {
   if (selectedPage != 1) {
     startIndex -= 10;
