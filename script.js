@@ -12,10 +12,10 @@ fetch("https://jsonplaceholder.typicode.com/todos")
     todos = json;
     //paging
     let pagesNumber = todos.length / 10;
-    let pagesNumberFraction = pagesNumber.toString().split(".")[1];
-    let pagesNumberWithoutFraction = pagesNumber.toString().split(".")[0];
-    if (Number(pagesNumberFraction) > 0)
-      pagesNumber = Number(pagesNumberWithoutFraction) + 1;
+    const pagesNumberRemainder = pagesNumber % 1;
+    const pagesNumberWithoutRemainder = Math.floor(pagesNumber);
+    if (pagesNumberRemainder > 0)
+      pagesNumber = Number(pagesNumberWithoutRemainder) + 1;
     todosPages = Array(pagesNumber)
       .fill(1)
       .map((x, i) => i + 1);
